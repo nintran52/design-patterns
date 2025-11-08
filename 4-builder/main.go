@@ -69,6 +69,13 @@ func (d *Director) MakeVeggieBurger(builder Builder) {
 	builder.SetVegetables([]string{"Lettuce", "Cucumber", "Onion"})
 }
 
+func (d *Director) MakeChickenBurger(builder Builder) {
+	builder.SetBread("Brioche")
+	builder.SetMeat("Chicken")
+	builder.SetCheese("Provolone")
+	builder.SetVegetables([]string{"Lettuce", "Tomato", "Pickles"})
+}
+
 // Step 4: Client Code
 func main() {
 	builder := NewBurgerBuilder()
@@ -84,4 +91,10 @@ func main() {
 	director.MakeVeggieBurger(builder)
 	burger2 := builder.Build()
 	burger2.Show()
+
+	fmt.Println("\nBuilding a Chicken Burger:")
+	builder = NewBurgerBuilder()
+	director.MakeChickenBurger(builder)
+	burger3 := builder.Build()
+	burger3.Show()
 }
